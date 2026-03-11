@@ -1,8 +1,6 @@
 """Tests for database setup script"""
 
-import pytest
 from sqlalchemy import inspect
-from sqlalchemy.exc import IntegrityError
 
 from app.models import Customer, Order
 from scripts.setup_database import load_customers, load_orders, verify_data
