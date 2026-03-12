@@ -42,10 +42,18 @@ python3 -m pytest tests/ -v
 - **ruff** — all-in-one linter. Configured in pyproject.toml to keep tooling centralised.
 - **Environment variables (.env)** — Keeps configuration separate from code, following the twelve-factor app pattern.
 
-
 ## Application Flow
 
 1. **Database setup** (`scripts/setup_database.py`) — Creates tables from ORM models, loads customers and orders from JSON files using merge for repeatability.
 2. **REST API** (`app/main.py`) — Serves customer data with orders via GET endpoints. Uses dependency injection for database sessions.
 3. **ETL export** (`scripts/etl_export.py`) — Extracts active customers with orders from the database, calculates total order values, and exports to a timestamped CSV.
 
+## What I Would Improve
+
+- **Database migrations** — Use Alembic to manage schema changes instead of recreating tables.
+- **Authentication** — Add API key or OAuth to protect endpoints.
+- **Pagination** — Add limit/offset to prevent large responses as data grows.
+- **Docker** — Containerise the application for consistent deployment across environments.
+- **CI/CD pipeline** — Add GitHub Actions for automated linting, testing, and deployment.
+- **API versioning** — Prefix routes with `/v1/` to allow future breaking changes.
+- **Health endpoint** — Remove database row counts from the response to avoid leaking internal metrics.
