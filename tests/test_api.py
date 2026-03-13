@@ -60,7 +60,7 @@ def test_get_customer_not_found(client) -> None:
 
 
 def test_order_has_total_value(client) -> None:
-    """Each order include calculated total_value"""
+    """Each order includes calculated total_value"""
     response = client.get("/customers/1")
     data = response.json()
     for order in data["orders"]:

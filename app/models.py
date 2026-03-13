@@ -4,6 +4,7 @@ from sqlalchemy import (
     CheckConstraint,
     Column,
     Date,
+    DateTime,
     Float,
     ForeignKey,
     Integer,
@@ -25,7 +26,7 @@ class Customer(Base):
     surname = Column(String, nullable=False)
     email = Column(String, nullable=False, unique=True)
     status = Column(String, nullable=False)
-    created_at = Column(String, server_default=func.now())
+    created_at = Column(DateTime, server_default=func.now())
 
     orders = relationship("Order", back_populates="customer")
 
@@ -48,7 +49,7 @@ class Order(Base):
     quantity = Column(Integer, nullable=False)
     unit_price = Column(Float, nullable=False)
     order_date = Column(Date, nullable=False)
-    created_at = Column(String, server_default=func.now())
+    created_at = Column(DateTime, server_default=func.now())
 
     customer = relationship("Customer", back_populates="orders")
 
