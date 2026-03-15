@@ -69,9 +69,8 @@ def test_order_has_total_value(client) -> None:
 
 
 def test_health_check(client) -> None:
-    """Health endpoint return status and count"""
+    """Health endpoint returns status"""
     response = client.get("/health")
     assert response.status_code == 200
     data = response.json()
     assert data["status"] == "healthy"
-    assert data["customer_count"] == 15

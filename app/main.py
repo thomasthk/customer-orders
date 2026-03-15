@@ -96,8 +96,8 @@ def get_customer_with_orders(customer_id: int, db: Session = Depends(get_db)) ->
 def health_check(db: Session = Depends(get_db)) -> dict:
     """Health check endpoint"""
     try:
-        count = db.query(Customer).count()
-        return {"status": "healthy", "customer_count": count}
+        db.query(Customer).count()
+        return {"status": "healthy"}
     except Exception as e:
         logger.error("Health check failed: %s", e)
         raise HTTPException(status_code=500, detail="Database unavailable")

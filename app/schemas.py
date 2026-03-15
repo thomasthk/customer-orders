@@ -40,7 +40,6 @@ class HealthResponse(BaseModel):
     """Health check response"""
 
     status: str
-    customer_count: int
 
 
 class RootResponse(BaseModel):

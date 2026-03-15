@@ -102,7 +102,6 @@ This script can be run on a schedule as a batch job.
 - **Database migrations** — Use Alembic to manage schema changes incrementally rather than recreating tables, which would be essential once there is real data to preserve.
 - **Schema validation on import** — The setup script trusts the JSON files fully. Adding validation (e.g. checking for duplicate emails or missing fields) before loading would make it safer to use with data from other sources.
 - **ETL error handling** — If a single row fails during the transform step, the entire export fails. Adding per-row error handling with logging would allow partial exports and make it easier to identify bad data.
-- **Health endpoint** — The `/health` response currently includes `customer_count`, which leaks information. In production it should return only the service status and keep internal information behind an authenticated admin endpoint.
 - **Structured logging** — Currently logs go to the console only. In production I would write to a file or a centralised logging service, with structured JSON output so logs can be filtered and searched.
 - **Pagination** — Add `limit` and `offset` query parameters to the customer endpoint so the API handles larger datasets without returning everything in a single response.
 - **A list endpoint** — The API only supports lookup by ID. I would add `GET /customers` with optional filtering by status (e.g. `?status=active`), since the ETL already distinguishes active customers and a list view would be a natural next feature for anyone consuming this API.
