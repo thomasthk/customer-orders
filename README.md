@@ -1,4 +1,4 @@
-# Customer Orders API
+# Customer Orders
 
 A Python application covering database setup, REST API, and an ETL export pipeline.
 
@@ -11,8 +11,8 @@ Requires **Python 3.12+**.
 ### macOS / Linux
 
 ```bash
-git clone https://github.com/thomasthk/customer-orders-api.git
-cd customer-orders-api
+git clone https://github.com/thomasthk/customer-orders.git
+cd customer-orders
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -36,8 +36,8 @@ python -m pytest tests/ -v
 ### Windows (CMD)
 
 ```cmd
-git clone https://github.com/thomasthk/customer-orders-api.git
-cd customer-orders-api
+git clone https://github.com/thomasthk/customer-orders.git
+cd customer-orders
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt

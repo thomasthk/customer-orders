@@ -1,5 +1,5 @@
 [project]
-name = "customer-orders-api"
+name = "customer-orders"
 version = "0.1.0"
 description = "Database operations, REST API, and ETL processing"
 requires-python = ">=3.10"
